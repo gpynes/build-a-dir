@@ -2,6 +2,7 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
+import { dirBuilder } from './dirBuilder'
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
@@ -21,11 +22,24 @@ export function activate(context: vscode.ExtensionContext) {
         vscode.window.showInformationMessage('Hello World!');
     });
     
-    let buildDirDisposable = vscode.commands.registerCommand('extension.buildDir', async () => {
+    const extensionNames: vscode.QuickPickItem[] = [
+        { label: '.js' },
+        { label: '.jsx' },
+        { label: '.ts' },
+        { label: '.tsx' },
+    ]
+    let buildDirDisposable = vscode.commands.registerCommand('extension.buildDir', async (file) => {
         const input_dir_name = await vscode.window.showInputBox();
+        const file_ext = await vscode.window.showQuickPick(extensionNames, {placeHolder: 'ext type'});
         if (input_dir_name) {
-            console.log('Got Dir Name', input_dir_name)
-            
+            console.log('Got Dir Name', input_dir_name, file, '- type =>', dirBuilder.isFileOrFolder(file.path), file_ext, 'Huh?')
+            try {
+                await dirBuilder.buildDir(file, input_dir_name, file_ext.label);
+            } catch(e) {
+                console.log('Error Bubbled', e)
+            }
+        } else {
+            console.log('Canceled')
         }
     })
 
