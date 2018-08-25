@@ -34,7 +34,7 @@
 				},
 				{
 					"command": "extension.buildDir",
-					"group": "mzdev"
+					"group": "1_modification"
 				}
 			],
 			"editor/title": [
@@ -44,7 +44,7 @@
 				},
 				{
 					"command": "extension.buildDir",
-					"group": "mzdev"
+					"group": "1_modification"
 				}
 			],
 			"explorer/context": [
@@ -54,7 +54,7 @@
 				},
 				{
 					"command": "extension.buildDir",
-					"group": "mzdev"
+					"group": "1_modification"
 				}
 			]
         }
