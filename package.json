@@ -11,7 +11,8 @@
         "Other"
     ],
     "activationEvents": [
-        "onCommand:extension.sayHello"
+        "onCommand:extension.sayHello",
+        "onCommand:extension.buildDir"
     ],
     "main": "./out/extension",
     "contributes": {
@@ -19,8 +20,45 @@
             {
                 "command": "extension.sayHello",
                 "title": "Hello World"
+            },
+            {
+                "command": "extension.buildDir",
+                "title": "Build A Directory"
             }
-        ]
+        ],
+        "menus": {
+            "editor/context": [
+				{
+					"command": "extension.sayHello",
+					"group": "mzdev"
+				},
+				{
+					"command": "extension.buildDir",
+					"group": "mzdev"
+				}
+			],
+			"editor/title": [
+				{
+					"command": "extension.sayHello",
+					"group": "mzdev"
+				},
+				{
+					"command": "extension.buildDir",
+					"group": "mzdev"
+				}
+			],
+			"explorer/context": [
+				{
+					"command": "extension.sayHello",
+					"group": "mzdev"
+				},
+				{
+					"command": "extension.buildDir",
+					"group": "mzdev"
+				}
+			]
+        }
+        
     },
     "scripts": {
         "vscode:prepublish": "npm run compile",

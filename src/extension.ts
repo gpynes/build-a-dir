@@ -20,8 +20,17 @@ export function activate(context: vscode.ExtensionContext) {
         // Display a message box to the user
         vscode.window.showInformationMessage('Hello World!');
     });
+    
+    let buildDirDisposable = vscode.commands.registerCommand('extension.buildDir', async () => {
+        const input_dir_name = await vscode.window.showInputBox();
+        if (input_dir_name) {
+            console.log('Got Dir Name', input_dir_name)
+            
+        }
+    })
 
     context.subscriptions.push(disposable);
+    context.subscriptions.push(buildDirDisposable);
 }
 
 // this method is called when your extension is deactivated
