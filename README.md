@@ -11,6 +11,7 @@ It takes two arguments:
 - {ext} - the extension type to be used 
 <br>
 example:
+
 ```
 ${pathname}/${name}/
     ${name}.${ext}
