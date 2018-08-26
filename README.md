@@ -1,22 +1,42 @@
 # build-a-dir README
 
-This is the README for your extension "build-a-dir". After writing up a brief description, we recommend including the following sections.
+This extension simply builds a module-like directory that contains an index file and a named file input by you.
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+<br>
+It takes two arguments:
+- {name} - the name of module
 
-For example if there is an image subfolder under your extension project workspace:
+- {ext} - the extension type to be used 
+<br>
+example:
+```
+${pathname}/${name}/
+    ${name}.${ext}
+    index.${ext}
+```
 
-\!\[feature X\]\(images/feature-x.png\)
+There are two ways to invoke this command:
+- selecting `Build A Module Directory` from the command palette
+- selecting `Build A Module Directory` in the right-click menu of the explorer pane
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+The directory that the module will created is gathered from where you right-click:
+- right-clicking a `file` will create the module next to the file 
+- right-clicking a `folder` will create the module inside the clicked directory
+- if run from the command-palette the project's root directory will be used 
+
+
+examples:
+![usage-gif](./build-a-dir-usage.gif)
 
 ## Requirements
 
 If you have any requirements or dependencies, add a section describing those and how to install and configure them.
 
 ## Extension Settings
+** **No Settings Yet** **
+(keeping this part here because I would like to in the future)
 
 Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
 
@@ -29,33 +49,20 @@ This extension contributes the following settings:
 
 ## Known Issues
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
-
 ## Release Notes
 
 Users appreciate release notes as you update your extension.
 
 ### 1.0.0
 
-Initial release of ...
+Initial release of `build-a-dir`
 
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
+- Adds ability to create module by right-clicking explorer menu
+- Adds ability to create module via the command palette
+- Allows user to input module name
+- Allows user to select extension type
 
 -----------------------------------------------------------------------------------------------------------
-
-## Working with Markdown
-
-**Note:** You can author your README using Visual Studio Code.  Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux)
-* Toggle preview (`Shift+CMD+V` on macOS or `Shift+Ctrl+V` on Windows and Linux)
-* Press `Ctrl+Space` (Windows, Linux) or `Cmd+Space` (macOS) to see a list of Markdown snippets
 
 ### For more information
 
