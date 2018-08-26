@@ -1,7 +1,7 @@
 {
     "name": "build-a-dir",
     "displayName": "build-a-dir",
-    "description": "A test ext to build directories for you",
+    "description": "An ext to help build directories for you",
     "version": "0.0.1",
     "publisher": "idunno",
     "engines": {
@@ -11,27 +11,18 @@
         "Other"
     ],
     "activationEvents": [
-        "onCommand:extension.sayHello",
         "onCommand:extension.buildDir"
     ],
     "main": "./out/extension",
     "contributes": {
         "commands": [
             {
-                "command": "extension.sayHello",
-                "title": "Hello World"
-            },
-            {
                 "command": "extension.buildDir",
-                "title": "Build A Directory"
+                "title": "Build A Module Directory"
             }
         ],
         "menus": {
             "editor/context": [
-				{
-					"command": "extension.sayHello",
-					"group": "mzdev"
-				},
 				{
 					"command": "extension.buildDir",
 					"group": "1_modification"
@@ -39,19 +30,11 @@
 			],
 			"editor/title": [
 				{
-					"command": "extension.sayHello",
-					"group": "mzdev"
-				},
-				{
 					"command": "extension.buildDir",
 					"group": "1_modification"
 				}
 			],
 			"explorer/context": [
-				{
-					"command": "extension.sayHello",
-					"group": "mzdev"
-				},
 				{
 					"command": "extension.buildDir",
 					"group": "1_modification"
