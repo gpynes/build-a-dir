@@ -41,13 +41,18 @@ class DirBuilder {
           throw 'Already Exists: ' + resolved  
         }
         
-        const { namedFile, indexFile } = this.makePathNames(path, [`index${ext}`, `${filename}${ext}`])
+        const [ indexFile, namedFile ] = this.makePathNames(resolved, [`index${ext}`, `${filename}${ext}`])
         
         await mkdir(resolved)
         await this.writeFile(namedFile, `export const ${filename} = '${filename}'`)
         await this.writeFile(indexFile, `export * from './${filename}'`)
     
         return 'Success'
+    }
+    
+    // Will return an array of paths, concatenating base with the each filename
+    makePathNames(baseDir: string, filenames: string[]) {
+        return filenames.map(filename => resolve(baseDir, filename))
     }
     
     // Wrapper for writing files
