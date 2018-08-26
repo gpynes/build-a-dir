@@ -7,7 +7,7 @@ const writeFile = promisify(wf)
 const mkdir = promisify(m)
 const exists = promisify(e)
 
-interface VscodeFile {
+export interface VscodeFile {
     $mid: number
     fsPath: string
     external: string
