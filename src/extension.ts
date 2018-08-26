@@ -22,13 +22,9 @@ export function activate(context: vscode.ExtensionContext) {
     const buildDirDisposable = vscode.commands.registerCommand('extension.buildDir', async (file) => {
         const input_dir_name = await vscode.window.showInputBox()
         const file_ext = await vscode.window.showQuickPick(extensionNames, {placeHolder: 'ext type'})
-        if (input_dir_name) {               // moved comments here for readability.
-                                            console.log('Got Dir Name', input_dir_name, file, '- type =>', dirBuilder.isFileOrFolder(file.path), file_ext, 'Huh?')
-                                            try {
+        
+        if (input_dir_name) {
             await dirBuilder.buildDir(file, input_dir_name, file_ext.label)
-                                            } catch(e) {
-                                                console.log('Error Bubbled', e)
-                                            }
         } else {
             console.log('Canceled')
         }
