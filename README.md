@@ -2,6 +2,20 @@
 
 This extension simply builds a module-like directory that contains an index file and a named file input by you.
 
+## Install
+
+- clone down this repo.
+
+- move it into your `~/.vscode/extensions/` directory alongside your other extensions.
+
+- `cd ~/.vscode/extensions/build-a-dir`
+
+- `npm i`
+
+- `npm run compile`
+
+- Then reload all open vsc editors or restart vscode and you should be good to go!
+
 ## Features
 
 <br>
